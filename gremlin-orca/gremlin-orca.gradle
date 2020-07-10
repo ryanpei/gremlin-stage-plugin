@@ -1,0 +1,32 @@
+apply plugin: "io.spinnaker.plugin.service-extension"
+apply plugin: "maven-publish"
+apply plugin: "kotlin"
+apply plugin: "kotlin-kapt"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+  mavenLocal()
+  jcenter()
+  maven { url "http://dl.bintray.com/spinnaker/spinnaker/" }
+}
+
+dependencies {
+  implementation(platform("com.netflix.spinnaker.kork:kork-bom:$korkVersion"))
+
+  annotationProcessor("org.pf4j:pf4j:3.2.0")
+
+  compileOnly("com.netflix.spinnaker.kork:kork-exceptions")
+  compileOnly("com.netflix.spinnaker.kork:kork-plugins-api")
+  compileOnly("com.netflix.spinnaker.orca:orca-api:$orcaVersion")
+
+  compileOnly("com.fasterxml.jackson.core:jackson-core")
+  compileOnly("com.fasterxml.jackson.core:jackson-databind")
+  compileOnly("com.fasterxml.jackson.core:jackson-annotations")
+}
+
+spinnakerPlugin {
+  serviceName = "orca"
+  pluginClass = "io.spinnaker.plugin.gremlin.orca.GremlinPlugin"
+}
