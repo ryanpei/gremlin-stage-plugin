@@ -10,7 +10,7 @@ TBD
 spinnaker:
   extensibility:
     plugins:
-      netflix.winston:
+      armory.gremlin:
         enabled: true
         config:
           baseUrl: 
