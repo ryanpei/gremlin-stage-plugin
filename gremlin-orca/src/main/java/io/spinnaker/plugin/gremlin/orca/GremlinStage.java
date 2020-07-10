@@ -19,26 +19,23 @@ import com.netflix.spinnaker.orca.api.pipeline.CancellableStage;
 import com.netflix.spinnaker.orca.api.pipeline.graph.StageDefinitionBuilder;
 import com.netflix.spinnaker.orca.api.pipeline.graph.TaskNode;
 import com.netflix.spinnaker.orca.api.pipeline.models.StageExecution;
-import io.spinnaker.plugin.winston.orca.GremlinService;
-import io.spinnaker.plugin.winston.orca.tasks.LaunchGremlinAttackTask;
-import io.spinnaker.plugin.winston.orca.tasks.MonitorGremlinAttackTask;
+import io.spinnaker.plugin.gremlin.orca.tasks.LaunchGremlinAttackTask;
+import io.spinnaker.plugin.gremlin.orca.tasks.MonitorGremlinAttackTask;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nonnull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.pf4j.Extension;
-import org.pf4j.Plugin;
-import org.pf4j.PluginWrapper;
 
 @Extension
-public static class GremlinStage implements StageDefinitionBuilder, CancellableStage {
+public class GremlinStage implements StageDefinitionBuilder, CancellableStage {
     public static final String APIKEY_KEY = "gremlinApiKey";
     public static final String COMMAND_TEMPLATE_ID_KEY = "gremlinCommandTemplateId";
     public static final String TARGET_TEMPLATE_ID_KEY = "gremlinTargetTemplateId";
     public static final String GUID_KEY = "gremlinAttackGuid";
     public static final String TERMINAL_KEY = "isGremlinTerminal";
 
-    @Autowired private GremlinService gremlinService;
+    @Autowired private io.spinnaker.plugin.gremlin.orca.GremlinService gremlinService;
 
     @Override
     public void taskGraph(@Nonnull StageExecution stage, @Nonnull TaskNode.Builder builder) {

@@ -19,12 +19,13 @@ import static io.spinnaker.plugin.gremlin.orca.GremlinStage.COMMAND_TEMPLATE_ID_
 import static io.spinnaker.plugin.gremlin.orca.GremlinStage.GUID_KEY;
 import static io.spinnaker.plugin.gremlin.orca.GremlinStage.TARGET_TEMPLATE_ID_KEY;
 
-import com.netflix.spinnaker.orca.api.pipeline.RetryableTask;
+import com.netflix.spinnaker.orca.api.pipeline.Task;
 import com.netflix.spinnaker.orca.api.pipeline.TaskResult;
 import com.netflix.spinnaker.orca.api.pipeline.models.ExecutionStatus;
 import com.netflix.spinnaker.orca.api.pipeline.models.StageExecution;
+import io.spinnaker.plugin.gremlin.orca.AttackParameters;
 import io.spinnaker.plugin.gremlin.orca.GremlinService;
-import io.spinnaker.plugin.gremlin.orca.GremlinStagePlugin;
+import io.spinnaker.plugin.gremlin.orca.GremlinStage;
 import org.pf4j.Extension;
 
 import java.util.HashMap;
@@ -33,7 +34,7 @@ import javax.annotation.Nonnull;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Extension
-public class LaunchGremlinAttackTask implements RetryableTask {
+public class LaunchGremlinAttackTask implements Task {
   private static final String GREMLIN_TEMPLATE_ID_KEY = "template_id";
 
   @Autowired private GremlinService gremlinService;

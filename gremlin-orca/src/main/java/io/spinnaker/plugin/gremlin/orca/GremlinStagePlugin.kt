@@ -23,7 +23,7 @@ import java.util.*
 import javax.annotation.Nonnull;
 
 class GremlinStagePlugin(wrapper: PluginWrapper) : Plugin(wrapper) {
-  private val logger = LoggerFactory.getLogger(RandomWaitPlugin::class.java)
+  private val logger = LoggerFactory.getLogger(GremlinStagePlugin::class.java)
 
   override fun start() {
     logger.info("GremlinStagePlugin.start()")
