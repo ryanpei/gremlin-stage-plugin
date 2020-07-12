@@ -6,7 +6,7 @@ pluginManagement {
   }
 }
 
-rootProject.name="plugin-gremlin"
+rootProject.name="gremlin-stage-plugin"
 
 include "gremlin-orca", "gremlin-deck"
 
