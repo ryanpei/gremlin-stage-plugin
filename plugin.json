@@ -1,0 +1,13 @@
+{
+    "id": "Armory.GremlinStagePlugin",
+    "description": "Gremlin stage",
+    "provider": "https://github.com/ryanpei",
+    "releases": [
+        {
+            "version": "v0.0.1.dirty-SNAPSHOT",
+            "requires": "orca>=0.0.0",
+            "sha512sum": "01ea11fb1b45bd435aa596103d801033a69910b13ab7c4228e042d1d8043f8bc2aa622bf9e313cb766e7bff0aec0b53ba0394863d78fe1df61ad3ec37823ca70",
+            "state": "RELEASE"
+        }
+    ]
+}
