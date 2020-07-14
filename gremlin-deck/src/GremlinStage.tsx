@@ -19,11 +19,8 @@ import {
 
 import { GremlinStageConfig } from './GremlinStageConfig';
 
-// wtf is this?
-import './RandomWaitStage.less';
-
 export function GremlinExecutionDetails(props: IExecutionDetailsSectionProps) {
-  const { stage } = props;
+  const { stage } = props; //stage.context
 
     return (
       <ExecutionDetailsSection name={props.name} current={props.current}>
@@ -41,7 +38,7 @@ export function GremlinExecutionDetails(props: IExecutionDetailsSectionProps) {
  */
 function RandomWaitStageConfig(props: IStageConfigProps) {
   return (
-    <div className="RandomWaitStageConfig">
+    <div className="GremlinStageConfig">
       <FormikStageConfig
         {...props}
         validate={validate}
@@ -78,7 +75,7 @@ function validate(stageConfig: IStage) {
   const validator = new FormValidator(stageConfig);
 
   validator
-    .field('maxWaitTime')
+    .field('gremlinApiKey')
     .required()
     .withValidators((value, label) => (value < 0 ? `${label} must be non-negative` : undefined));
 
@@ -86,7 +83,7 @@ function validate(stageConfig: IStage) {
 }
 
 export namespace GremlinExecutionDetails {
-  export const title = 'gremlin';
+  export const title = 'gremlinRyan';
 }
 
 /*
@@ -98,9 +95,9 @@ export namespace GremlinExecutionDetails {
   - component -> The rendered React component
   - validateFn -> A validation function for the stage config form.
  */
-export const randomWaitStage: IStageTypeConfig = {
-  key: 'gremlin',
-  label: `Gremlin`,
+export const gremlinStage: IStageTypeConfig = {
+  key: 'gremlinRyan',
+  label: `Ryan - Gremlin`,
   description: 'Runs a chaos experiment using Gremlin',
   component: GremlinStageConfig, // stage config
   executionDetailsSections: [GremlineExecutionDetails, ExecutionDetailsTasks],

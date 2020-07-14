@@ -38,6 +38,11 @@ public class GremlinStage implements StageDefinitionBuilder, CancellableStage {
     @Autowired private io.spinnaker.plugin.gremlin.orca.GremlinService gremlinService;
 
     @Override
+    public String getName() {
+        return "gremlinRyan";
+    }
+
+    @Override
     public void taskGraph(@Nonnull StageExecution stage, @Nonnull TaskNode.Builder builder) {
         builder
                 .withTask("launchGremlinAttack", LaunchGremlinAttackTask.class)
