@@ -100,7 +100,7 @@ export const gremlinStage: IStageTypeConfig = {
   label: `Ryan - Gremlin`,
   description: 'Runs a chaos experiment using Gremlin',
   component: GremlinStageConfig, // stage config
-  executionDetailsSections: [GremlineExecutionDetails, ExecutionDetailsTasks],
+  executionDetailsSections: [GremlinExecutionDetails, ExecutionDetailsTasks],
   strategy: true,
   validators: [
     { type: 'requiredField', fieldName: 'gremlinCommandTemplateId' },

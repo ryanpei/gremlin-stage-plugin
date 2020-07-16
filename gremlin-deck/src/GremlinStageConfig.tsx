@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { API } from 'core/api/ApiService';
-import { IStageConfigProps, StageConfigField } from '../common';
+//import { API } from 'core/api/ApiService';
+import { API, IStageConfigProps, StageConfigField } from '@spinnaker/core';
+//import { IStageConfigProps, StageConfigField } from '../common';
 import { Observable } from 'rxjs';
 import Select from 'react-select';
 

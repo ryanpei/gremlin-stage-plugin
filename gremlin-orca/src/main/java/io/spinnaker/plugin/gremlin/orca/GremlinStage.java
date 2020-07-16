@@ -35,9 +35,8 @@ public class GremlinStage implements StageDefinitionBuilder, CancellableStage {
     public static final String GUID_KEY = "gremlinAttackGuid";
     public static final String TERMINAL_KEY = "isGremlinTerminal";
 
-    @Autowired private io.spinnaker.plugin.gremlin.orca.GremlinService gremlinService;
+    @Autowired private GremlinService gremlinService;
 
-    @Override
     public String getName() {
         return "gremlinRyan";
     }
