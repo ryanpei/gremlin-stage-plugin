@@ -47,5 +47,5 @@ dependencies {
 
 spinnakerPlugin {
   serviceName = "orca"
-  pluginClass = "io.spinnaker.plugin.gremlin.orca.GremlinPlugin"
+  pluginClass = "io.spinnaker.plugin.gremlin.orca.GremlinStagePlugin"
 }

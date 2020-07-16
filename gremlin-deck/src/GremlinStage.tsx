@@ -35,13 +35,13 @@ export function GremlinExecutionDetails(props: IExecutionDetailsSectionProps) {
   Pass a JSON object to the `updateStageField` method to add the `maxWaitTime` to the Stage.
 
   This method returns JSX (https://reactjs.org/docs/introducing-jsx.html) that gets displayed in the Spinnaker UI.
- */
-function RandomWaitStageConfig(props: IStageConfigProps) {
+
+function GremlinStageConfig(props: IStageConfigProps) {
   return (
     <div className="GremlinStageConfig">
       <FormikStageConfig
         {...props}
-        validate={validate}
+//        validate={validate}
         onChange={props.updateStage}
         render={(props) => (
           <FormikFormField
@@ -55,7 +55,7 @@ function RandomWaitStageConfig(props: IStageConfigProps) {
     </div>
   );
 }
-
+*/
 /*
   This is a contrived example of how to use an `initialize` function to hook into arbitrary Deck services. 
   This `initialize` function provides the help field text for the `RandomWaitStageConfig` stage form defined above.
@@ -68,9 +68,9 @@ function RandomWaitStageConfig(props: IStageConfigProps) {
   These registries and their methods may change without warning.
 */
 export const initialize = () => {
-  HelpContentsRegistry.register('armory.randomWaitStage.maxWaitTime', 'The maximum time, in seconds, that this stage should wait before continuing.');
+//  HelpContentsRegistry.register('armory.gremlinStage.maxWaitTime', 'The maximum time, in seconds, that this stage should wait before continuing.');
 };
-
+/*
 function validate(stageConfig: IStage) {
   const validator = new FormValidator(stageConfig);
 
@@ -81,7 +81,7 @@ function validate(stageConfig: IStage) {
 
   return validator.validateForm();
 }
-
+*/
 export namespace GremlinExecutionDetails {
   export const title = 'gremlinRyan';
 }
