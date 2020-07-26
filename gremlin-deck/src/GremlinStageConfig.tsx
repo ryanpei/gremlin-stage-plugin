@@ -1,10 +1,10 @@
 import React from 'react';
 
 //import { API } from 'core/api/ApiService';
-import { API, IStageConfigProps, StageConfigField } from '@spinnaker/core';
+import { API, IStageConfigProps, StageConfigField, ReactSelectInput } from '@spinnaker/core';
 //import { IStageConfigProps, StageConfigField } from '../common';
 import { Observable } from 'rxjs';
-import Select from 'react-select';
+//import Select from 'react-select';
 
 interface IArgOptions {
   value?: string;
@@ -176,7 +176,7 @@ export class GremlinStageConfig extends React.Component<IStageConfigProps> {
                 <p className="form-control-static">No targets found.</p>
               )
             ) : (
-              <Select
+              <ReactSelectInput
                 name="gremlinTargetTemplateId"
                 options={targets.map(target => ({
                   label: target.name,
@@ -184,7 +184,7 @@ export class GremlinStageConfig extends React.Component<IStageConfigProps> {
                 }))}
                 clearable={false}
                 value={stage.gremlinTargetTemplateId || null}
-                onChange={this.handleGremlinTargetTemplateIdChange}
+                //onChange={this.handleGremlinTargetTemplateIdChange}
               />
             )}
           </StageConfigField>
@@ -196,7 +196,7 @@ export class GremlinStageConfig extends React.Component<IStageConfigProps> {
                 <p className="form-control-static">No commands found.</p>
               )
             ) : (
-              <Select
+              <ReactSelectInput
                 name="gremlinCommandTemplateId"
                 options={commands.map(command => ({
                   label: command.name,
@@ -204,7 +204,7 @@ export class GremlinStageConfig extends React.Component<IStageConfigProps> {
                 }))}
                 clearable={false}
                 value={stage.gremlinCommandTemplateId || null}
-                onChange={this.handleGremlinCommandTemplateIdChange}
+                //onChange={this.handleGremlinCommandTemplateIdChange}
               />
             )}
             <div className="form-control-static">
