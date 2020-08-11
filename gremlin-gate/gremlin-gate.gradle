@@ -4,6 +4,7 @@ buildscript {
   }
   dependencies {
     classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion"
+    //classpath "org.jetbrains.kotlin:kotlin-grade-plugin:$kotlinVersion"
   }
 }
 
@@ -27,11 +28,23 @@ dependencies {
 
   annotationProcessor("org.pf4j:pf4j:3.2.0")
 
+  compileOnly (group: 'com.netflix.spinnaker.kork', name: 'kork-plugins-spring-api', version: "${korkVersion}")
+
   compileOnly("com.netflix.spinnaker.kork:kork-exceptions")
   compileOnly("com.netflix.spinnaker.kork:kork-plugins-api")
-  compileOnly("com.netflix.spinnaker.orca:orca-api:$orcaVersion")
-  compileOnly("com.netflix.spinnaker.orca:orca-retrofit:$orcaVersion")
-  compileOnly("com.netflix.spinnaker.orca:orca-core:$orcaVersion")
+  compileOnly("com.netflix.spinnaker.kork:kork-swagger")
+  compileOnly("com.netflix.spinnaker.kork:kork-web")
+
+  compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+  compileOnly("org.jetbrains.kotlin:kotlin-reflect")
+
+  compileOnly("com.netflix.spectator:spectator-api")
+  compileOnly("com.squareup.okhttp3:okhttp")
+  compileOnly("com.squareup.retrofit:retrofit")
+  compileOnly("com.squareup.retrofit:converter-jackson")
+  compileOnly("com.jakewharton.retrofit:retrofit1-okhttp3-client:1.1.0")
+
+  compileOnly("com.netflix.spinnaker.gate:gate-core:$gateVersion")
 
   compileOnly(group: 'com.netflix.spinnaker.kork', name: 'kork-plugins-spring-api', version: "${korkVersion}")
   compileOnly(group: "org.springframework", name: "spring-context", version: "5.2.1.RELEASE")
@@ -48,6 +61,6 @@ dependencies {
 }
 
 spinnakerPlugin {
-  serviceName = "orca"
-  pluginClass = "io.spinnaker.plugin.gremlin.orca.GremlinStagePlugin"
+  serviceName = "gate"
+  pluginClass = "io.spinnaker.plugin.gremlin.gate.GremlinStagePlugin"
 }

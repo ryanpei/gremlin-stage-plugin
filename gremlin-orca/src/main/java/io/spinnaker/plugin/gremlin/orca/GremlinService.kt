@@ -16,17 +16,17 @@
 
 package io.spinnaker.plugin.gremlin.orca
 
-import retrofit2.http.Body
-import retrofit2.http.DELETE
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Headers
-import retrofit2.http.POST
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit.http.Body
+import retrofit.http.DELETE
+import retrofit.http.GET
+import retrofit.http.Header
+import retrofit.http.Headers
+import retrofit.http.POST
+import retrofit.http.Path
+import retrofit.http.Query
 
 interface GremlinService {
-    @POST("/attacks/new")
+    @POST("/scenarios")
     @Headers(
             "Content-Type: application/json",
             "X-Gremlin-Agent: spinnaker/0.1.0"
@@ -45,7 +45,7 @@ interface GremlinService {
             @Query("taskId") attackGuid: String
     ): List<AttackStatus>
 
-    @DELETE("/attacks/{attackGuid}")
+    @DELETE("/scenarios/{attackGuid}")
     @Headers(
             "X-Gremlin-Agent: spinnaker/0.1.0"
     )

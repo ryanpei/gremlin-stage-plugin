@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.spinnaker.plugin.gremlin.orca;
+package io.spinnaker.plugin.gremlin.orca.stage;
 
 import com.netflix.spinnaker.orca.api.pipeline.CancellableStage;
 import com.netflix.spinnaker.orca.api.pipeline.graph.StageDefinitionBuilder;
 import com.netflix.spinnaker.orca.api.pipeline.graph.TaskNode;
 import com.netflix.spinnaker.orca.api.pipeline.models.StageExecution;
+import io.spinnaker.plugin.gremlin.orca.GremlinService;
 import io.spinnaker.plugin.gremlin.orca.tasks.LaunchGremlinAttackTask;
 import io.spinnaker.plugin.gremlin.orca.tasks.MonitorGremlinAttackTask;
 import java.util.Map;
@@ -26,7 +27,9 @@ import java.util.Optional;
 import javax.annotation.Nonnull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.pf4j.Extension;
+import org.springframework.stereotype.Component;
 
+@Component
 @Extension
 public class GremlinStage implements StageDefinitionBuilder, CancellableStage {
     public static final String APIKEY_KEY = "gremlinApiKey";

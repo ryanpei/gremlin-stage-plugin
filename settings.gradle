@@ -8,7 +8,7 @@ pluginManagement {
 
 rootProject.name="gremlin-stage-plugin"
 
-include "gremlin-orca", "gremlin-deck"
+include "gremlin-orca", "gremlin-deck", "gremlin-gate"
 
 def setBuildFile(project) {
   project.buildFileName = "${project.name}.gradle"

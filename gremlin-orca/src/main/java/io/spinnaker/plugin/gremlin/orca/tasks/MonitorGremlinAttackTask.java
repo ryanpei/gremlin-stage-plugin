@@ -15,7 +15,7 @@
  */
 package io.spinnaker.plugin.gremlin.orca.tasks;
 
-import static io.spinnaker.plugin.gremlin.orca.GremlinStage.TERMINAL_KEY;
+import static io.spinnaker.plugin.gremlin.orca.stage.GremlinStage.TERMINAL_KEY;
 
 import com.netflix.spinnaker.orca.api.pipeline.OverridableTimeoutRetryableTask;
 import com.netflix.spinnaker.orca.api.pipeline.Task;
@@ -24,7 +24,7 @@ import com.netflix.spinnaker.orca.api.pipeline.models.ExecutionStatus;
 import com.netflix.spinnaker.orca.api.pipeline.models.StageExecution;
 import io.spinnaker.plugin.gremlin.orca.AttackStatus;
 import io.spinnaker.plugin.gremlin.orca.GremlinService;
-import io.spinnaker.plugin.gremlin.orca.GremlinStage;
+import io.spinnaker.plugin.gremlin.orca.stage.GremlinStage;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -32,11 +32,10 @@ import javax.annotation.Nonnull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Component;
 import org.pf4j.Extension;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+@Component
 @Extension
 public class MonitorGremlinAttackTask implements OverridableTimeoutRetryableTask, Task {
   @Autowired private GremlinService gremlinService;

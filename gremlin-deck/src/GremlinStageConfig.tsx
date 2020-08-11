@@ -42,9 +42,11 @@ export class GremlinStageConfig extends React.Component<IStageConfigProps> {
     }
   };
 
+  //apiUrl = "https://api.gremlin.com/v1/clients?teamId=e7352a6b-a9a0-513c-81e4-980f680a70c4"
+
   private fetchCommands = (apiKey: string) => {
     return Observable.fromPromise(
-      API.one('integrations/gremlin/templates/command')
+      API.one('integrations/ryanGremlin/templates/command')
         .post({
           apiKey,
         })
@@ -62,7 +64,7 @@ export class GremlinStageConfig extends React.Component<IStageConfigProps> {
 
   private fetchTargets = (apiKey: string) => {
     return Observable.fromPromise(
-      API.one('integrations/gremlin/templates/target')
+      API.one('integrations/ryanGremlin/templates/target')
         .post({
           apiKey,
         })
